@@ -1,0 +1,44 @@
+body {
+    padding-top: 5rem;
+}
+
+.play-nicely-with-nav {
+padding: 3rem 1.5rem;
+text-align: center;
+}
+
+.nav-icon{
+    line-height: 40px;
+}
+
+.login-input{
+    width: 250px;
+}
+
+.polls-top{
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.create-poll{
+    height: 38px;
+    line-height: 38px;
+}
+
+.filter-poll{
+    height: 38px;
+    line-height: 38px;   
+}
+
+.create-label{
+    width: 75px;
+    display: inline-block;
+}
+
+.create-input{
+    width: 250px;
+    margin-bottom: 10px;
+    display: block;
+}
+

@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Create a new poll</h1>
+  <p class="text-secondary">Each poll must have 1 question and 4 options to select from.</p>
+  <form>
+    <div class="form-group">
+      <div class="form-item create-input"><input class="create-input form-control" type="text" name="question" minlength="8" maxlength="100" required [(ngModel)]="poll.question" #question="ngModel" placeholder="Question"></div>
+      <div class="form-item create-input"><input class="create-input form-control" type="text" name="option01_opt" minlength="1" maxlength="50" required [(ngModel)]="poll.option01_opt" #option01_opt="ngModel" placeholder="Option 1"></div>
+      <div class="form-item create-input"><input class="create-input form-control" type="text" name="option02_opt" minlength="1" maxlength="50" required [(ngModel)]="poll.option02_opt" #option02_opt="ngModel" placeholder="Option 2"></div>
+      <div class="form-item create-input"><input class="create-input form-control" type="text" name="option03_opt" minlength="1" maxlength="50" required [(ngModel)]="poll.option03_opt" #option03_opt="ngModel" placeholder="Option 3"></div>
+      <div class="form-item create-input"><input class="create-input form-control" type="text" name="option04_opt" minlength="1" maxlength="50" required [(ngModel)]="poll.option04_opt" #option04_opt="ngModel" placeholder="Option 4"></div>
+      
+      <input *ngIf='!question.errors && !option01_opt.errors && !option02_opt.errors && !option03_opt.errors && !option04_opt.errors' type="submit" value="Create Poll" (click)="createPoll()" class="btn-primary">
+    </div>
+  </form>
+
+  <div *ngIf='question.errors && question.dirty'>
+    <p class="text-warning">Question must be eight to 100 characters long.</p>
+  </div>
+  <div *ngIf='question.dirty && (option01_opt.errors || option02_opt.errors || option03_opt.errors || option04_opt.errors)' >
+    <p class="text-warning">Each option must be one to 50 characters long.</p>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+
+
+<div class="container">
+  <div class="play-nicely-with-nav">
+    <div class="container polls-top">
+      <div class="float-left filter-poll"><input class="filter-poll form-control" type="text" [(ngModel)]="searchText" placeholder=" Filter polls"></div>
+      <div class="float-right"><a class="create-poll" href='/create'>Create New Poll</a></div>
+    </div>
+    <h1>Current Polls</h1>
+    <p class="text-secondary">Choose a poll to vote or view results, or create a new poll of your own!</p>
+    <p class="text-secondary">If you created a poll, you can also delete it.</p>
+    <div class="table-responsive" class="col-md-12 col-sm-12">
+      <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Author</th>
+              <th scope="col">Question</th>
+              <th scope="col">Date Created</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let poll of allPolls | search:searchText">
+            <td>{{poll.author.name}}</td>
+            <td><a [routerLink]="['/poll',poll._id]">{{poll.question}}</a></td>
+            <td>{{poll.createdAt | date: 'MMMM dd, yyyy'}}</td>
+            <td><a *ngIf="poll.author._id===user._id" a href="/dashboard" (click)="deletePoll(poll._id)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+

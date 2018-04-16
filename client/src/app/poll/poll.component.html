@@ -1,0 +1,68 @@
+<div class="container">
+  <h1>{{poll.question}}</h1><br>
+  <p class="text-secondary" *ngIf="userVotedInPoll()">Thanks for participating!</p>
+  <p class="text-secondary" *ngIf="userVotedInPoll()">You voted in this poll already, so there are no actions for you to take.</p>
+
+  <div class="table-responsive" class="col-md-8 col-sm-8">
+    <table class="table" border="0px">
+      <thead>
+          <tr>
+            <th scope="col" >Option</th>
+            <th scope="col" >Vote Count</th>
+            <th scope="col" *ngIf="!userVotedInPoll()">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{poll.option01_opt}}
+          </td>
+          <td>
+            {{poll.option01_voters.length}}
+          </td>
+          <td *ngIf="!userVotedInPoll()">
+            <button *ngIf="!userVotedInPoll()" (click)="voteForOption(poll._id,1)" class="btn-primary">Vote</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            {{poll.option02_opt}}
+          </td>
+          <td>
+            {{poll.option02_voters.length}}
+          </td>
+          <td *ngIf="!userVotedInPoll()">
+            <button *ngIf="!userVotedInPoll()" (click)="voteForOption(poll._id,2)" class="btn-primary">Vote</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            {{poll.option03_opt}}
+          </td>
+          <td>
+            {{poll.option03_voters.length}}
+          </td>
+          <td *ngIf="!userVotedInPoll()">
+            <button *ngIf="!userVotedInPoll()" (click)="voteForOption(poll._id,3)" class="btn-primary">Vote</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            {{poll.option04_opt}}
+          </td>
+          <td>
+            {{poll.option04_voters.length}}
+          </td>
+          <td *ngIf="!userVotedInPoll()">
+            <button *ngIf="!userVotedInPoll()" (click)="voteForOption(poll._id,4)" class="btn-primary">Vote</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <canvas id="chartCanvas" height="300" width="300">{{chart}}</canvas>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="play-nicely-with-nav">
+    <h1>Login or Register</h1>
+    <form (submit)="login()">
+      <div class="form-group">
+        <label class="login-input"><input type="text" name="name" minlength="1" maxlength="20" required [(ngModel)]="user.name" #name="ngModel" class="form-control" placeholder="Username"></label>
+        <input *ngIf='!name.errors' type="submit" value="Submit" class="btn-primary">
+      </div>
+    </form>
+
+    <div *ngIf='name.errors && name.dirty'>
+      <p class="text-warning">Name must be one to 20 characters, and is required.</p>
+    </div>
+
+  </div>
+</div>
